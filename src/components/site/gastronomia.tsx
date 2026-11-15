@@ -14,7 +14,7 @@ type Dish = { name: string; image: string; alt: string };
 type Category = { id: string; label: string; note: string; dishes: Dish[] };
 
 // Dish names only — ingredients, prices and availability must come from the official menu.
-const CATEGORIES: Category[] = [
+const CATEGORIES = [
   {
     id: "entradas",
     label: "Entradas",
@@ -45,11 +45,13 @@ const CATEGORIES: Category[] = [
     note: "O final doce de uma noite especial. Consulte as opções da casa.",
     dishes: [{ name: "Dolci della casa", image: sobremesa, alt: "Sobremesa italiana servida com café" }],
   },
-];
+] as const satisfies readonly Category[];
+
+const FIRST: Category = CATEGORIES[0];
 
 export function Gastronomia() {
-  const [active, setActive] = useState(CATEGORIES[0].id);
-  const current = CATEGORIES.find((c) => c.id === active) ?? CATEGORIES[0];
+  const [active, setActive] = useState<string>(FIRST.id);
+  const current: Category = CATEGORIES.find((c) => c.id === active) ?? FIRST;
 
   return (
     <section id="gastronomia" className="section-pad bg-ink text-ivory">
