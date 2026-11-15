@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Restaurant contact data (WhatsApp, Instagram, address, map URLs) lives only in `src/lib/site.ts`; components import from there so one edit updates every CTA.
+- The site is a single scrolling page (`src/routes/index.tsx`) composed of section components in `src/components/site/`; the user specified it as one home page with sections.
+- Map uses the keyless Google Maps embed iframe so it works on any domain without an API key.

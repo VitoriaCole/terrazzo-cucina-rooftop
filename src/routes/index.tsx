@@ -46,7 +46,7 @@ export const Route = createFileRoute("/")({
       { name: "geo.placename", content: "Bauru" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESCRIPTION },
-      { property: "og:type", content: "restaurant" },
+      { property: "og:type", content: "website" },
       { property: "og:locale", content: "pt_BR" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
